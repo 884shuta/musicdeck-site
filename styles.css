@@ -4,19 +4,19 @@
 
 /* Custom Properties */
 :root {
-  --bg-primary: #080710;
-  --bg-secondary: #121026;
-  --bg-card: rgba(20, 18, 43, 0.45);
+  --bg-primary: #060b13;
+  --bg-secondary: #0e1828;
+  --bg-card: rgba(13, 25, 43, 0.45);
   --text-primary: #ffffff;
   --text-secondary: #9fa0b5;
   --text-muted: #5e5d75;
   
-  --accent-purple: #8A2BE2;
-  --accent-pink: #FF1493;
-  --accent-cyan: #00f2fe;
+  --accent-purple: #2C5E8A;
+  --accent-pink: #5B84B1;
+  --accent-cyan: #8AB4F8;
   
-  --gradient-primary: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
-  --gradient-glow: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(255, 20, 147, 0.3));
+  --gradient-primary: linear-gradient(135deg, #1b3c5d, #6c8fa9);
+  --gradient-glow: linear-gradient(135deg, rgba(27, 60, 93, 0.4), rgba(108, 143, 169, 0.4));
   
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
@@ -28,7 +28,7 @@
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px rgba(138, 43, 226, 0.25);
+  --shadow-glow: 0 0 40px rgba(108, 143, 169, 0.25);
   
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -81,7 +81,7 @@ body::before {
 body::after {
   bottom: 20%;
   left: -10%;
-  background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(138, 43, 226, 0.15));
+  background: linear-gradient(135deg, rgba(138, 180, 248, 0.15), rgba(27, 60, 93, 0.15));
 }
 
 a {
