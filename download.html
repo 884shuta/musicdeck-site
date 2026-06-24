@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MusicDeck ダウンロード | iPhoneでMacの音楽操作をもっと手軽に</title>
+  <meta
+    name="description"
+    content="MusicDeckのダウンロードページです。Macアプリ（DMGファイル）およびiPhoneアプリ（App Store/TestFlight）を取得できます。"
+  />
+
+  <meta property="og:title" content="MusicDeck ダウンロード" />
+  <meta property="og:description" content="iPhoneからMacの音楽操作をもっと手軽に。MusicDeckのダウンロードはこちらから。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://884shuta.github.io/musicdeck-site/download.html" />
+  <meta property="og:image" content="https://884shuta.github.io/musicdeck-site/assets/app-icon.svg" />
+
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  
+  <script>
+    // ==========================================
+    // iPhone版 配信モード設定スイッチ (デフォルト)
+    // ==========================================
+    // true  : デフォルトで TestFlight版 (ベータテスト) を表示
+    // false : デフォルトで App Store版 (正式リリース) を表示
+    const USE_TESTFLIGHT_DEFAULT = false; 
+
+    // URLのクエリパラメータ (?testflight=true または ?testflight=false) に基づく動的切り替え
+    const urlParams = new URLSearchParams(window.location.search);
+    const USE_TESTFLIGHT = urlParams.has('testflight') 
+      ? (urlParams.get('testflight') === 'true') 
+      : USE_TESTFLIGHT_DEFAULT;
+
+    // 各種リンク先の設定
+    const APP_STORE_URL = "https://apps.apple.com/jp/app/id6781479995";
+    const TESTFLIGHT_URL = "https://testflight.apple.com/join/WTsdsdNE";
+    const MAC_DMG_URL = "./MusicDeck.dmg";
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img src="./assets/app-icon.svg" alt="MusicDeck Logo" class="brand-icon" />
+      <span class="brand-name">MusicDeck</span>
+    </a>
+
+    <nav class="nav">
+      <a href="./index.html#features">特徴</a>
+      <a href="./index.html#setup">使い方</a>
+      <a href="./download.html" class="active">ダウンロード</a>
+      <a href="./privacy.html" class="nav-secondary">プライバシー</a>
+    </nav>
+  </header>
+
+  <main class="download-page">
+    <section class="download-page-heading">
+      <p class="label">Get MusicDeck</p>
+      <h1>アプリをダウンロード</h1>
+      <p>手元のiPhoneから、Mac上の音楽再生をインテリジェントにコントロールしましょう。</p>
+    </section>
+
+    <div class="download-grid">
+      <!-- Mac OS App Card -->
+      <section class="download-detail-card">
+        <div class="platform-icon-wrap">
+          <!-- macOS Apple Logo -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.69-1.12 1.83-.98 2.94 1.07.08 2.15-.52 2.81-1.33z"/>
+          </svg>
+        </div>
+        <h2>MusicDeck for Mac</h2>
+        <p class="platform-version">macOS 12.0 以降推奨 (DMG形式)</p>
+        <p class="description">
+          iPhoneからのリモート操作を受け付けるホストアプリです。バックグラウンドでシームレスに動作し、メニューバーから接続状況をいつでも確認できます。
+        </p>
+        <div class="badge-container">
+          <a class="button primary" id="macDownloadBtn" href="">
+            <span class="btn-text">Mac版をダウンロード</span>
+          </a>
+          <span class="badge-info-text">※ ダウンロード後、DMGを開いてアプリケーションフォルダにドラッグしてください</span>
+        </div>
+      </section>
+
+      <!-- iPhone App Card (Dynamic toggle) -->
+      <section class="download-detail-card" id="iosCard">
+        <div class="platform-icon-wrap">
+          <!-- iPhone Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+          </svg>
+        </div>
+        <h2>MusicDeck for iPhone</h2>
+        <p class="platform-version" id="iosVersion">iOS 16.0 以降</p>
+        <p class="description" id="iosDescription">
+          Macの音楽再生状況をリアルタイムで表示・操作するリモコンアプリです。接続はQRコードをスキャンするだけで即座に完了します。
+        </p>
+        
+        <div class="badge-container" id="iosBadgeContainer">
+          <!-- Rendered dynamically by JavaScript based on USE_TESTFLIGHT -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="copyright">© 2026 MusicDeck</p>
+      <div class="footer-links">
+        <a href="./privacy.html">プライバシーポリシー</a>
+        <a href="./terms.html">利用規約</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set Mac download link
+      const macBtn = document.getElementById('macDownloadBtn');
+      if (macBtn) {
+        macBtn.href = MAC_DMG_URL;
+      }
+
+      // Dynamic toggle for iOS download target
+      const badgeContainer = document.getElementById('iosBadgeContainer');
+      const iosVersion = document.getElementById('iosVersion');
+      const iosDescription = document.getElementById('iosDescription');
+      const iosCard = document.getElementById('iosCard');
+
+      if (USE_TESTFLIGHT) {
+        // --- TestFlight Mode ---
+        iosVersion.textContent = "iOS 16.0 以降 (TestFlight ベータ版)";
+        iosDescription.textContent = "現在、MusicDeck for iPhoneは先行ベータテストを実施しています。以下のリンクからTestFlightプログラムに参加してアプリをお試しください。";
+
+        // Create TestFlight green custom badge SVG + Text
+        badgeContainer.innerHTML = `
+          <a href="${TESTFLIGHT_URL}" class="testflight-badge" target="_blank" rel="noopener noreferrer">
+            <!-- TestFlight Propeller Icon SVG -->
+            <svg class="testflight-badge-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-.25-3.75c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-4.5c0-.41.34-.75.75-.75s.75.34.75.75v4.5z"/>
+            </svg>
+            <span>TestFlightでベータ版に参加</span>
+          </a>
+          <span class="badge-info-text">※ 先行ベータ版のため参加枠に限りがあります</span>
+          
+          <div class="testflight-steps">
+            <h3>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              ベータ版のインストール手順
+            </h3>
+            <ol>
+              <li>iOS端末で App Store から <strong>TestFlight</strong> アプリをインストールします。</li>
+              <li>上の「TestFlightでベータ版に参加」ボタンをタップします。</li>
+              <li>「テストを開始」をタップしてアプリをインストールします。</li>
+            </ol>
+          </div>
+        `;
+      } else {
+        // --- App Store Mode ---
+        iosVersion.textContent = "iOS 16.0 以降 (正式リリース版)";
+        
+        // Render App Store official black badge
+        badgeContainer.innerHTML = `
+          <a href="${APP_STORE_URL}" class="app-store-badge-link" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" 
+              alt="App Store からダウンロード" 
+            />
+          </a>
+          <span class="badge-info-text">App Store で配信中</span>
+        `;
+      }
+    });
+
+    // --- Scroll Effect for Header ---
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -16,21 +16,24 @@
   <meta property="og:image" content="https://884shuta.github.io/musicdeck-site/assets/app-icon.svg" />
 
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
   <header class="site-header">
     <a class="brand" href="./index.html">
-      <img src="./assets/app-icon.svg" alt="" class="brand-icon" />
-      <span>MusicDeck</span>
+      <img src="./assets/app-icon.svg" alt="MusicDeck Logo" class="brand-icon" />
+      <span class="brand-name">MusicDeck</span>
     </a>
 
     <nav class="nav">
       <a href="#features">特徴</a>
       <a href="#setup">使い方</a>
-      <a href="#download">ダウンロード(現在利用不可)</a>
-      <a href="./privacy.html">プライバシー</a>
+      <a href="./download.html">ダウンロード</a>
+      <a href="./privacy.html" class="nav-secondary">プライバシー</a>
     </nav>
   </header>
 
@@ -45,31 +48,116 @@
         </p>
 
         <div class="hero-actions">
-          <a class="button primary" href="#download">ダウンロードへ(現在利用不可)</a>
+          <a class="button primary" href="./download.html">ダウンロード</a>
           <a class="button secondary" href="#setup">使い方を見る</a>
         </div>
       </div>
 
       <div class="hero-visual" aria-label="MusicDeckの利用イメージ">
-        <div class="device mac">
-          <div class="screen">
-            <div class="music-card">
-              <div class="album"></div>
-              <div>
-                <p class="song-title">Now Playing</p>
-                <p class="song-subtitle">Controlled from iPhone</p>
+        <!-- MacBook Mockup -->
+        <div class="device macbook">
+          <div class="macbook-screen">
+            <div class="macbook-camera"></div>
+            <div class="macbook-display">
+              <div class="macbook-app">
+                <div class="app-sidebar">
+                  <div class="sidebar-dot red"></div>
+                  <div class="sidebar-dot yellow"></div>
+                  <div class="sidebar-dot green"></div>
+                </div>
+                <div class="app-main">
+                  <div class="music-player-status">
+                    <div class="music-wave" id="musicWave">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <span class="status-badge">Connected</span>
+                  </div>
+                  <div class="music-card-desktop">
+                    <div class="album-art-wrap">
+                      <div class="album-art" id="desktopAlbumArt">
+                        <img src="./assets/app-icon.svg" alt="Album Art" class="album-image" />
+                      </div>
+                    </div>
+                    <div class="song-info">
+                      <p class="song-title">Perfect Harmony</p>
+                      <p class="song-artist">Controlled by MusicDeck</p>
+                    </div>
+                    <div class="playback-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill" id="desktopProgress"></div>
+                      </div>
+                      <div class="progress-time">
+                        <span class="current-time" id="desktopCurrentTime">0:00</span>
+                        <span class="total-time">3:45</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="macbook-base">
+            <div class="macbook-notch"></div>
+          </div>
         </div>
 
-        <div class="device phone">
-          <div class="phone-screen">
-            <div class="pill">Connected</div>
-            <div class="control-circle">▶︎</div>
-            <div class="control-row">
-              <span>⏮</span>
-              <span>⏭</span>
+        <!-- iPhone Mockup -->
+        <div class="device iphone">
+          <div class="iphone-screen">
+            <div class="dynamic-island"></div>
+            <div class="iphone-content">
+              <div class="connection-status">
+                <span class="status-dot pulsing"></span>
+                <span class="status-text">Mac Connected</span>
+              </div>
+              
+              <div class="iphone-album-preview">
+                <div class="iphone-album-art-wrap" id="iphoneAlbumArt">
+                  <img src="./assets/app-icon.svg" alt="Album Art" class="iphone-album-art" />
+                </div>
+              </div>
+              
+              <div class="iphone-song-info">
+                <h4 class="iphone-song-title">Perfect Harmony</h4>
+                <p class="iphone-song-artist">Controlled by MusicDeck</p>
+              </div>
+
+              <!-- Interactive Controls -->
+              <div class="iphone-controls">
+                <button class="ctrl-btn prev" id="btnPrev" aria-label="Previous Track">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M6 6h2v12H6zm3.5 6L18 6v12z"/>
+                  </svg>
+                </button>
+                <button class="ctrl-btn play-pause" id="btnPlayPause" aria-label="Play/Pause">
+                  <!-- Play Icon -->
+                  <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <!-- Pause Icon (hidden by default) -->
+                  <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                  </svg>
+                </button>
+                <button class="ctrl-btn next" id="btnNext" aria-label="Next Track">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M6 18V6l8.5 6L6 18zm9-12h2v12h-2z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="iphone-volume">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" opacity="0.6">
+                  <path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"/>
+                </svg>
+                <div class="volume-slider">
+                  <div class="volume-fill"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -84,6 +172,12 @@
 
       <div class="feature-grid">
         <section class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
           <h3>iPhoneから音楽操作</h3>
           <p>
             Macで再生している音楽を、手元のiPhoneから再生・停止・曲送りなどで操作できます。
@@ -91,6 +185,18 @@
         </section>
 
         <section class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <rect x="7" y="7" width="3" height="3"></rect>
+              <rect x="14" y="7" width="3" height="3"></rect>
+              <rect x="7" y="14" width="3" height="3"></rect>
+              <line x1="14" y1="14" x2="14.01" y2="14"></line>
+              <line x1="17" y1="14" x2="17.01" y2="14"></line>
+              <line x1="14" y1="17" x2="14.01" y2="17"></line>
+              <line x1="17" y1="17" x2="17.01" y2="17"></line>
+            </svg>
+          </div>
           <h3>QRコードでかんたん接続</h3>
           <p>
             Mac側に表示されたQRコードをiPhoneで読み取ることで、スムーズに接続できます。
@@ -98,6 +204,12 @@
         </section>
 
         <section class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
           <h3>作業中でも使いやすい</h3>
           <p>
             勉強中、開発中、作業中でも、Macの画面を切り替えずに音楽操作ができます。
@@ -105,6 +217,14 @@
         </section>
 
         <section class="feature">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+              <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+              <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+          </div>
           <h3>環境に応じた通信</h3>
           <p>
             同じネットワーク内での接続や、近くの端末同士の接続を活用して操作できます。
@@ -113,55 +233,71 @@
       </div>
     </section>
 
-    <section id="setup" class="section split">
-      <div>
+    <section id="setup" class="section setup-section">
+      <div class="section-heading">
         <p class="label">Setup</p>
         <h2>使い方</h2>
       </div>
 
       <ol class="steps">
         <li>
-          <strong>Mac版MusicDeckを起動</strong>
-          <span>Mac側アプリを開き、接続用QRコードを表示します。</span>
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <strong>Mac版MusicDeckを起動</strong>
+            <span>Mac側アプリを開き、接続用QRコードを表示します。</span>
+          </div>
         </li>
         <li>
-          <strong>iPhone版MusicDeckでQRコードを読み取り</strong>
-          <span>iPhoneアプリからQRコードをスキャンしてMacと接続します。</span>
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <strong>iPhone版MusicDeckでQRコードを読み取り</strong>
+            <span>iPhoneアプリからQRコードをスキャンしてMacと接続します。</span>
+          </div>
         </li>
         <li>
-          <strong>iPhoneから音楽を操作</strong>
-          <span>再生・停止・曲送りなどを手元から操作できます。</span>
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <strong>iPhoneから音楽を操作</strong>
+            <span>再生・停止・曲送りなどを手元から操作できます。</span>
+          </div>
         </li>
       </ol>
     </section>
 
     <section id="download" class="section download">
-      <p class="label">Download</p>
-      <h2>ダウンロード</h2>
-      <p>
-        現在、MusicDeckはテスト配信または準備中です。公開後、こちらにApp StoreリンクとMac版ダウンロードリンクを掲載します。
-      </p>
+      <div class="download-card">
+        <p class="label">Download</p>
+        <h2>アプリを手に入れよう</h2>
+        <p class="download-text">
+          MusicDeck for Mac (DMG) および MusicDeck for iPhone (App Store / TestFlight) は、専用のダウンロードページから取得いただけます。
+        </p>
 
-      <div class="download-actions">
-        <a class="button primary disabled" href="#" aria-disabled="true">iPhone版 App Store 準備中</a>
-        <a class="button secondary" href="https://github.com/884shuta/MusicDeckHost/releases">Mac版をダウンロード</a>
+        <div class="download-actions">
+          <a class="button primary" href="./download.html">
+            <span class="btn-text">ダウンロードページへ</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section class="section support">
-      <h2>サポート</h2>
-      <p>
-        不具合報告やお問い合わせは、以下のメールアドレスまでご連絡ください。
-      </p>
-      <a href="mailto:884shuta@gmail.com">884shuta@gmail.com</a>
+      <div class="support-card">
+        <h2>サポート</h2>
+        <p>
+          不具合報告やお問い合わせは、以下のメールアドレスまでご連絡ください。
+        </p>
+        <a href="mailto:884shuta@gmail.com" class="support-email">884shuta@gmail.com</a>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 MusicDeck</p>
-    <div>
-      <a href="./privacy.html">プライバシーポリシー</a>
-      <a href="./terms.html">利用規約</a>
+    <div class="footer-content">
+      <p class="copyright">© 2026 MusicDeck</p>
+      <div class="footer-links">
+        <a href="./privacy.html">プライバシーポリシー</a>
+        <a href="./terms.html">利用規約</a>
+      </div>
     </div>
   </footer>
 
