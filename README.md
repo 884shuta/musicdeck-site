@@ -11,11 +11,8 @@ https://884shuta.github.io/musicdeck-site/
 - `index.html`  
   MusicDeckのトップページ
 
-- `privacy.html`  
-  プライバシーポリシー
-
-- `terms.html`  
-  利用規約
+- `download.html`  
+  ダウンロードページ
 
 - `styles.css`  
   サイト全体のデザイン
@@ -33,8 +30,7 @@ https://884shuta.github.io/musicdeck-site/
 6. Branchを `main`、Folderを `/root` にする
 7. Saveする
 
-## App Store Connectで使うURL
+## 各種規約URL
 
-Privacy Policy URL:
-
-[https://884shuta.github.io/musicdeck-site/privacy.html](https://1drv.ms/w/c/810bf9147a4c14a8/IQAAaawLs56LTbE1ffTJUJcUAeW8jraU5esxiWDNwERlWV0?e=xQjPeq)
+- プライバシーポリシー: [OneDrive リンク](https://1drv.ms/w/c/810bf9147a4c14a8/IQAAaawLs56LTbE1ffTJUJcUAeW8jraU5esxiWDNwERlWV0?e=xQjPeq)
+- 利用規約: [OneDrive リンク](https://1drv.ms/w/c/810bf9147a4c14a8/IQA9z_WjtKL5Qb_uEhBewveHAXv-hzF2zRF8XQzg35AWvOg?e=cDfBK1)
